@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.active {
+  color: #61dafb;
+}
+.inactive {
+  color: white;
+}
