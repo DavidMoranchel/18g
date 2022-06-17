@@ -37,6 +37,14 @@
   }
 }
 
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  opacity: 0.8;
+}
+
 .active {
   color: #61dafb;
 }

@@ -1,50 +1,61 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./App.css";
 
-// Components
-import Title from "./components/Title";
-import FullName from "./components/FullName";
-
 function App() {
-  const [count, setCount] = useState(0);
-  const [isOn, setIsOn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [itemActive, setItemActive] = useState(null);
 
-  const handleClick = (increase) => {
-    let newCount = count;
-    if (increase) {
-      newCount = newCount + 1;
-    } else {
-      newCount = newCount - 1;
-    }
-    setCount(newCount);
-  };
+  const isActive = (itemNumber) => itemNumber === itemActive;
 
-  const isMultiple = count % 5 === 0 && count !== 0 ? true : false;
-  const countType = isMultiple ? "Es multiplo de 5" : "No es multiplo de 5";
-  const countClass = isMultiple ? "active" : "inactivo";
+  console.log(itemActive);
 
-  const squareClass = isOn ? "square-on" : "square-off";
-  const squareText = isOn ? "ON" : "OFF";
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Title text="Aaron"></Title>
-        <FullName firstName="Luis" lastName="Vera"></FullName>
-        <p className={countClass}>
-          Counter: {count}, {countType}
-        </p>
-        <button onClick={() => handleClick(true)}>Increase</button>
-
-        <div className={`square ${squareClass}`}>{squareText}</div>
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
-          <button onClick={() => setIsOn(!isOn)}>Interruptor</button>
-        </div>
-      </header>
+      {isLoading ? (
+        "Esta cargando"
+      ) : (
+        <header className="App-header">
+          <ul>
+            <li
+              onClick={() => setItemActive(1)}
+              className={`${isActive(1) ? "active" : "inactive"}`}
+            >
+              Texto 1
+            </li>
+            <li
+              onClick={() => setItemActive(2)}
+              className={`${isActive(2) ? "active" : "inactive"}`}
+            >
+              Texto 2
+            </li>
+            <li
+              onClick={() => setItemActive(3)}
+              className={`${isActive(3) ? "active" : "inactive"}`}
+            >
+              Texto 3
+            </li>
+            <li
+              onClick={() => setItemActive(4)}
+              className={`${isActive(4) ? "active" : "inactive"}`}
+            >
+              Texto 4
+            </li>
+            <li
+              onClick={() => setItemActive(5)}
+              className={`${isActive(5) ? "active" : "inactive"}`}
+            >
+              Texto 5
+            </li>
+          </ul>
+        </header>
+      )}
     </div>
   );
 }
