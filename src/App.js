@@ -2,6 +2,15 @@ import { useState } from "react";
 
 import "./App.css";
 
+function CardItemContent({ title, text }) {
+  return (
+    <div className="card-item-content">
+      <p className="title">{title}</p>
+      <p className="content">{text}</p>
+    </div>
+  );
+}
+
 function App() {
   const [itemActive, setItemActive] = useState(null);
 
@@ -13,36 +22,59 @@ function App() {
       lastName: "Vera",
       age: 24,
       gender: "m",
-      photoURL: "URL VALIDA",
+      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
     },
     {
       firstName: "Nestor",
       lastName: "Ramírez",
       age: 40,
       gender: "m",
-      photoURL: "URL VALIDA",
+      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
     },
     {
       firstName: "David",
       lastName: "Romero",
       age: 28,
       gender: "m",
-      photoURL: "URL VALIDA",
+      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
     },
     {
       firstName: "Yusef",
       lastName: "Lopéz",
       age: 40,
-      gender: "m",
-      photoURL: "URL VALIDA",
+      gender: "f",
+      photoURL: "https://media4.giphy.com/media/5sYyfIMRcpJWNqdySh/giphy.gif",
     },
   ];
 
-  const animals = ["parrot", "dog", "breaver", "cat"];
-  const animalsUI = animals.map((animal, index) => (
-    <li key={index}>{animal}</li>
-  ));
-  console.log(animalsUI);
+  const kodersUI = koders.map(
+    ({ firstName, lastName, age, gender, photoURL }, index) => (
+      <div key={index} className="card-container">
+        <div className="card-image-container">
+          <img alt="profile" src={photoURL} className="card-image" />
+        </div>
+        <div className="card-content">
+          <CardItemContent title="Nombre" text={`${firstName} ${lastName}`} />
+          <CardItemContent title="Edad" text={age} />
+          <CardItemContent
+            title="Gender"
+            text={gender === "m" ? "Masculino" : "Femenino"}
+          />
+
+          {/* <div className="card-item-content">
+            <p className="title">Edad</p>
+            <p className="content">{age}</p>
+          </div>
+          <div className="card-item-content">
+            <p className="title">Gender</p>
+            <p className="content">
+              {gender === "m" ? "Masculino" : "Femenino"}
+            </p>
+          </div> */}
+        </div>
+      </div>
+    )
+  );
 
   return (
     <div className="App">
@@ -79,9 +111,10 @@ function App() {
             Texto 5
           </li>
         </ul>
-
-        <ul>{animalsUI}</ul>
       </header>
+      <div className="main-container">
+        <div className="container">{kodersUI}</div>
+      </div>
     </div>
   );
 }
