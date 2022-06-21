@@ -1,3 +1,6 @@
+// Component
+import CardItemContent from "../CardItemContent";
+
 import "./Card.css";
 
 export default function Card({ photoURL, firstName, lastName, age, gender }) {
@@ -8,20 +11,12 @@ export default function Card({ photoURL, firstName, lastName, age, gender }) {
       </div>
       <div className="card-content">
         {/* Crear un componente llamado CardItemContent */}
-        <div className="card-item-content">
-          <p className="title">Name</p>
-          <p className="content">
-            {firstName} {lastName}
-          </p>
-        </div>
-        <div className="card-item-content">
-          <p className="title">Edad</p>
-          <p className="content">{age}</p>
-        </div>
-        <div className="card-item-content">
-          <p className="title">Gender</p>
-          <p className="content">{gender === "m" ? "Masculino" : "Femenino"}</p>
-        </div>
+        <CardItemContent title={"Name"} content={`${firstName} ${lastName}`} />
+        <CardItemContent title={"Edad"} content={age} />
+        <CardItemContent
+          title={"Gender"}
+          content={gender === "m" ? "Masculino" : "Femenino"}
+        />
       </div>
     </div>
   );

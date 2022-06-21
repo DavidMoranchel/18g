@@ -1,0 +1,22 @@
+.card-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 50px;
+}
+
+.card-item-content > p {
+  margin: 0 0 6px 0;
+}
+
+.title {
+  font-size: medium;
+  font-weight: bold;
+  color: #2e2e2e;
+}
+
+.content {
+  font-size: xx-large;
+  font-weight: 500;
+  color: #0c0c0c;
+}
