@@ -1,15 +1,9 @@
 import { useState } from "react";
 
-import "./App.css";
+// Components
+import Card from "./components/Card";
 
-function CardItemContent({ title, text }) {
-  return (
-    <div className="card-item-content">
-      <p className="title">{title}</p>
-      <p className="content">{text}</p>
-    </div>
-  );
-}
+import "./App.css";
 
 function App() {
   const [itemActive, setItemActive] = useState(null);
@@ -49,30 +43,15 @@ function App() {
 
   const kodersUI = koders.map(
     ({ firstName, lastName, age, gender, photoURL }, index) => (
-      <div key={index} className="card-container">
-        <div className="card-image-container">
-          <img alt="profile" src={photoURL} className="card-image" />
-        </div>
-        <div className="card-content">
-          <CardItemContent title="Nombre" text={`${firstName} ${lastName}`} />
-          <CardItemContent title="Edad" text={age} />
-          <CardItemContent
-            title="Gender"
-            text={gender === "m" ? "Masculino" : "Femenino"}
-          />
-
-          {/* <div className="card-item-content">
-            <p className="title">Edad</p>
-            <p className="content">{age}</p>
-          </div>
-          <div className="card-item-content">
-            <p className="title">Gender</p>
-            <p className="content">
-              {gender === "m" ? "Masculino" : "Femenino"}
-            </p>
-          </div> */}
-        </div>
-      </div>
+      <Card
+        key={index}
+        photoURL={photoURL}
+        nickName={"Apodo"}
+        firstName={firstName}
+        lastName={lastName}
+        age={age}
+        gender={gender}
+      />
     )
   );
 
