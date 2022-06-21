@@ -21,10 +21,6 @@ export default function Card({
           </p>
         </div>
         <div className="card-item-content">
-          <p className="title">Apodo</p>
-          <p className="content">{nickName}</p>
-        </div>
-        <div className="card-item-content">
           <p className="title">Edad</p>
           <p className="content">{age}</p>
         </div>

@@ -46,7 +46,6 @@ function App() {
       <Card
         key={index}
         photoURL={photoURL}
-        nickName={"Apodo"}
         firstName={firstName}
         lastName={lastName}
         age={age}
