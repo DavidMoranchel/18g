@@ -92,3 +92,19 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.title {
+  font-size: x-large;
+  color: #3f3f3f;
+}
+
+input {
+  padding: 4px 2px;
+  width: 300px;
+  border: none;
+  border-radius: 4px;
+  color: rgb(44, 44, 44);
+  font-size: large;
+  background-color: white;
+  margin: 2px;
+}
