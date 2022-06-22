@@ -10,7 +10,8 @@ function App() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [photoURL, setPhotoURL] = useState("");
-  const [amount, setAmount] = useState(null);
+  const [amountMXN, setAmountMXN] = useState(null);
+  const [amountUSD, setAmountUSD] = useState(null);
 
   const [koders, setKoders] = useState([
     {
@@ -68,12 +69,16 @@ function App() {
     setPhotoURL("");
   };
 
-  console.log(koders, "KODERS");
-
-  const USD = 20.16;
-  const handleChangeAmount = ({ target: { value } }) => {
-    const newAmount = Number(value);
-    setAmount(newAmount);
+  const handleChangeAmount = ({ target: { value } }, from) => {
+    const USD = 20.16;
+    // from = USD o MXN
+    if (from === "USD") {
+      setAmountMXN(value * USD);
+      setAmountUSD(value);
+    } else {
+      setAmountMXN(value);
+      setAmountUSD(value / USD);
+    }
   };
 
   return (
@@ -104,10 +109,16 @@ function App() {
       </form>
 
       <div>
-        <p className="title">
-          La cantidad en USD es ${!amount ? "0.00" : (amount / USD).toFixed(2)}
-        </p>
-        <input type="number" value={amount} onChange={handleChangeAmount} />
+        <input
+          type="number"
+          value={amountMXN}
+          onChange={(e) => handleChangeAmount(e, "MXN")}
+        />
+        <input
+          type="number"
+          value={amountUSD}
+          onChange={(e) => handleChangeAmount(e, "USD")}
+        />
       </div>
     </div>
   );
