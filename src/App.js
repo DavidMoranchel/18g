@@ -1,21 +1,24 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import AppContainer from "./containers/AppContainer";
 
 // Components
+import About from "./pages/About";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* Cambiar a componente */}
-        <Route path="about" element={<p>I'm in about page</p>} />
-        {/* Agregar ruta y componente de perfil */}
+        <Route path="/" element={<p>Landing page</p>} />
+        <Route path="login" element={<p>Login</p>} />
+        <Route path="signup" element={<p>Signup</p>} />
+        <Route path="app" element={<AppContainer />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
       </Routes>
     </div>
   );
