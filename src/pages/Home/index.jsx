@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { getCharacters } from "../../services/characters";
 
 export default function Home() {
-  const [characters, setCharacters] = useState([]);
+  const [characters] = useState([]);
 
   // REQUEST A Rick and Morty API.
   useEffect(() => {
     const getCharactersQuery = async () => {
       const data = await getCharacters();
-      console.log(data);
-      setCharacters(data.results);
+      console.log(data, "RESPUESTA DEL SERVIDOR");
+      // setCharacters(data.results);
     };
 
     getCharactersQuery();
