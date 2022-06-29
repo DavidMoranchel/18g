@@ -9,7 +9,7 @@ export default function AppContainer() {
           <nav>
             <Link to="">Home</Link>
             <Link to="about">About</Link>
-            <Link to="profile">Profile</Link>
+            <Link to="profiles">Profiles</Link>
           </nav>
         </div>
         <div className="App-container-content">
