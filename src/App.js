@@ -27,7 +27,7 @@ function App() {
             <Route index element={<ProfileList />} />
             <Route path=":id" element={<ProfileDetail />} />
             <Route path="create" element={<ProfileCreate />} />
-            <Route path="edit" element={<ProfileEdit />} />
+            <Route path="edit/:id" element={<ProfileEdit />} />
           </Route>
         </Route>
       </Routes>
