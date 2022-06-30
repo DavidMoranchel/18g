@@ -1,0 +1,15 @@
+.form-child {
+  flex: 1;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 300px;
+  height: 30px;
+  background-color: white;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  border: 1px rgb(189, 189, 189) solid;
+  border-radius: 6px;
+  padding-left: 10px;
+}
