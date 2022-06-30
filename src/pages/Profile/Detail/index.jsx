@@ -36,6 +36,7 @@ export default function ProfileDetail() {
             {user.firstName} {user.lastName}
           </p>
           <p>{user.email}</p>
+          <p>{user.birthdate}</p>
           <button onClick={() => navigate(-1)}>Regresar</button>
         </div>
       )}
